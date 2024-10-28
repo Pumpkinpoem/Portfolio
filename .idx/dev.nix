@@ -7,7 +7,7 @@
   # Use https://search.nixos.org/packages to find packages
   packages = [
     # pkgs.go
-    # pkgs.python311
+    pkgs.python311
     # pkgs.python311Packages.pip
     # pkgs.nodejs_20
     # pkgs.nodePackages.nodemon
@@ -22,15 +22,16 @@
     ];
 
     # Enable previews
+ previews = {
+  enable = true;
   previews = {
-      enable = true;
-      previews = {
-        web = {
-          command = [ "python3" "-m" "http.server" "$PORT" "--bind" "0.0.0.0" ];
-          manager = "web";
-        };
-      };
+    web = {
+      command = [ "python3" "-m" "http.server" "$PORT" "--bind" "0.0.0.0" ];
+      manager = "web";
     };
+  };
+};
+
 
     # Workspace lifecycle hooks
     workspace = {
